@@ -13,5 +13,10 @@
         "php": "^7.0|^8.0",
         "guzzlehttp/guzzle": "^7.0",
         "illuminate/support": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Josh996\\TmdbApi\\": "src/"
+        }
     }
 }

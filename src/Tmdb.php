@@ -22,8 +22,14 @@ class Tmdb
             'timeout'  => 2,
         ]);
 
-        $request = $client->request($method, $type, $opt);
+        $request = $client->request($method, $type, [
+            "query" => [
+                "api_key" => config('tmdb.api_key'),
+                'language' => config('tmdb.language')
+            ],
+            $opt
+        ]);
 
-        dd($request);
+        dd($request->getBody());
     }
 }

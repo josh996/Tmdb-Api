@@ -8,6 +8,7 @@
             "email": "mr.josh996@gmail.com"
         }
     ],
+    "license": "MIT",
     "require": {
         "php": "^7.0|^8.0",
         "guzzlehttp/guzzle": "^7.0"

@@ -24,7 +24,10 @@
         "laravel": {
             "providers": [
                 "Josh996\\TmdbApi\\TmdbApiProvider"
-            ]
+            ],
+            "aliases": {
+                "Tmdb": "Josh996\\TmdbApi\\Facades\\Tmdb"
+            }
         }
     }
 }

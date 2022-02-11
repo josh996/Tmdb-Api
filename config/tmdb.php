@@ -1,5 +1,6 @@
 <?php
 
 return [
-    "api_key" => ""
+    "api_key" => "",
+    "language" => "en-US"
 ];

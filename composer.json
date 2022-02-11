@@ -18,5 +18,6 @@
         "psr-4": {
             "Josh996\\TmdbApi\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

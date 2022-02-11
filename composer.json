@@ -1,5 +1,5 @@
 {
-    "name": "josh996/Tmdb-Api",
+    "name": "josh996/tmdb-api",
     "description": " Laravel Package for TMDB API.",
     "keywords": ["Laravel", "tmdb", "api", "php", "wrapper", "movie", "tv", "tv show", "tvdb"],
     "authors": [

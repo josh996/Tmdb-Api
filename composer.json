@@ -19,5 +19,12 @@
             "Josh996\\TmdbApi\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Josh996\\TmdbApi\\TmdbApiProvider"
+            ]
+        }
+    }
 }

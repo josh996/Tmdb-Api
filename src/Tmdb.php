@@ -31,6 +31,6 @@ class Tmdb
             $opt
         ]);
 
-        dd($request->getBody());
+        return json_decode($request->getBody(), true);
     }
 }

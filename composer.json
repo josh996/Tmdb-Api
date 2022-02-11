@@ -1,0 +1,14 @@
+{
+    "name": "josh996/Tmdb-Api",
+    "description": " Laravel Package for TMDB API.",
+    "keywords": ["Laravel", "tmdb", "api", "php", "wrapper", "movie", "tv", "tv show", "tvdb"],
+    "authors": [
+        {
+            "name": "Joshua Aryadi",
+            "email": "mr.josh996@gmail.com"
+        }
+    ],
+    "require": {
+        
+    }
+}

@@ -6,9 +6,10 @@ use GuzzleHttp\Client;
 
 class Tmdb
 {
-    const ENDPOINT = "https://api.themoviedb.org/3";
-    const MOVIE = 'movie';
-    const TV = 'tv';
+    const ENDPOINT = "https://api.themoviedb.org/";
+    const VERSION = "/3";
+    const MOVIE = '/movie';
+    const TV = '/tv';
 
     public function __construct()
     {
@@ -22,7 +23,7 @@ class Tmdb
             'timeout'  => 2,
         ]);
 
-        $request = $client->request($method, $type, [
+        $request = $client->request($method, self::VERSION.$type, [
             "query" => [
                 "api_key" => config('tmdb.api_key'),
                 'language' => config('tmdb.language')

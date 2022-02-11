@@ -15,8 +15,8 @@ class TmdbApiProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/tmdb.php', 'tmdb'
-        );
+        $this->app->singleton('josh996.tmdb', function () {
+            return new Tmdb();
+        });
     }
 }

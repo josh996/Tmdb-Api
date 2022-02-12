@@ -3,6 +3,7 @@
 namespace Josh996\TmdbApi;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class Tmdb
 {
@@ -16,6 +17,11 @@ class Tmdb
         # code...
     }
 
+    public function getMovie($id, $opt = [])
+    {
+        
+    }
+
     public function getData($method = "GET", $type, $opt = []) 
     {
         $client = new Client([
@@ -26,11 +32,16 @@ class Tmdb
         $request = $client->request($method, self::VERSION.$type, [
             "query" => [
                 "api_key" => config('tmdb.api_key'),
-                'language' => config('tmdb.language')
+                'language' => config('tmdb.language'),
+                'append_to_response' => config('tmdb.append_to_response')
             ],
             $opt
         ]);
 
-        return json_decode($request->getBody(), true);
+        try {
+            return json_decode($request->getBody(), true);
+        } catch (ClientException $e) {
+            return $e->getMessage();
+        }
     }
 }

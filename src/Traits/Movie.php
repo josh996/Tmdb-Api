@@ -8,4 +8,9 @@ trait Movie
     {
         return $this->getData("GET", self::MOVIE."/".$id, $opt);
     }
+
+    public function getAccountStates($id, $opt =[])
+    {
+        return $this->getData("GET", self::MOVIE."/account_states".$id, $opt);
+    }
 }

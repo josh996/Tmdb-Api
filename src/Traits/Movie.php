@@ -11,7 +11,11 @@ trait Movie
 
     public function getAlternativeTitles($id, $opt =[])
     {
-        return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", $opt);
+        return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", [
+            "query" => [
+                'append_to_response' => config('tmdb.append_to_response')
+            ]
+        ]);
     }
 
     public function getCredits($id, $opt =[])

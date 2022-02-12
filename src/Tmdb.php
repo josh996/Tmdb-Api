@@ -28,8 +28,7 @@ class Tmdb
         $query = [
             "query" => [
                 "api_key" => config('tmdb.api_key'),
-                'language' => config('tmdb.language'),
-                'append_to_response' => config('tmdb.append_to_response')
+                'language' => config('tmdb.language')
             ]
         ];
         $client = new Client([
@@ -38,7 +37,7 @@ class Tmdb
         ]);
 
         try {
-            $request = $client->request($method, self::VERSION.$type, array_merge($query, $opt));
+            $request = $client->request($method, self::VERSION.$type, array_merge_recursive($query, $opt));
             $data = json_decode($request->getBody(), $this->isArray);
         } catch (ClientException $e) {
             $data = json_decode(Message::bodySummary($e->getResponse()), $this->isArray);

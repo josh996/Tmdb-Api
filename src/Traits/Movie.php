@@ -13,4 +13,9 @@ trait Movie
     {
         return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", $opt);
     }
+
+    public function getCredits($id, $opt =[])
+    {
+        return $this->getData("GET", self::MOVIE."/".$id."/credits", $opt);
+    }
 }

@@ -6,10 +6,11 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Message;
 use Josh996\TmdbApi\Traits\Movie;
+use Josh996\TmdbApi\Traits\Tv;
 
 class Tmdb
 {
-    use Movie;
+    use Movie, Tv;
     
     const ENDPOINT = "https://api.themoviedb.org/";
     const MOVIE = '/movie';

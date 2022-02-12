@@ -2,7 +2,7 @@
 
 namespace Josh996\TmdbApi\Traits;
 
-class Tv
+trait Tv
 {
     public function getTv($id, $opt = [])
     {

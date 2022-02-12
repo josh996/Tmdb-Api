@@ -5,12 +5,15 @@ namespace Josh996\TmdbApi;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Message;
+use Josh996\TmdbApi\Traits\Movie;
 
 class Tmdb
 {
+    use Movie;
+    
     const ENDPOINT = "https://api.themoviedb.org/";
-    const VERSION = "/3";
     const MOVIE = '/movie';
+    const VERSION = "/3";
     const TV = '/tv';
 
     public $isArray = true;
@@ -18,11 +21,6 @@ class Tmdb
     public function __construct()
     {
 
-    }
-
-    public function getMovie($id, $opt = [])
-    {
-        return $this->getData("GET", self::MOVIE."/".$id, $opt);
     }
 
     public function getData($method = "GET", $type, $opt = []) 

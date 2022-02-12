@@ -6,16 +6,18 @@ trait Movie
 {    
     public function getMovie($id, $opt = [])
     {
-        return $this->getData("GET", self::MOVIE."/".$id, $opt);
+        $append = [
+            "query" => [
+                'append_to_response' => config('tmdb.append_to_response')
+            ]
+        ];
+
+        return $this->getData("GET", self::MOVIE."/".$id, array_merge_recursive($append, $opt));
     }
 
     public function getAlternativeTitles($id, $opt =[])
     {
-        return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", [
-            "query" => [
-                'append_to_response' => config('tmdb.append_to_response')
-            ]
-        ]);
+        return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", $opt);
     }
 
     public function getCredits($id, $opt =[])

@@ -25,20 +25,20 @@ class Tmdb
 
     public function getData($method = "GET", $type, $opt = []) 
     {
+        $query = [
+            "query" => [
+                "api_key" => config('tmdb.api_key'),
+                'language' => config('tmdb.language'),
+                'append_to_response' => config('tmdb.append_to_response')
+            ]
+        ];
         $client = new Client([
             'base_uri' => self::ENDPOINT,
             'timeout'  => 2,
         ]);
 
         try {
-            $request = $client->request($method, self::VERSION.$type, [
-                "query" => [
-                    "api_key" => config('tmdb.api_key'),
-                    'language' => config('tmdb.language'),
-                    'append_to_response' => config('tmdb.append_to_response')
-                ],
-                $opt
-            ]);
+            $request = $client->request($method, self::VERSION.$type, array_merge($query, $opt));
             $data = json_decode($request->getBody(), $this->isArray);
         } catch (ClientException $e) {
             $data = json_decode(Message::bodySummary($e->getResponse()), $this->isArray);

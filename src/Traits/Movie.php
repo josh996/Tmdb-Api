@@ -33,5 +33,10 @@ trait Movie
     {
         return $this->getData("GET", self::MOVIE."/".$id."/keywords", $opt);
     }
+
+    public function getList($id, $opt =[])
+    {
+        return $this->getData("GET", self::MOVIE."/".$id."/lists", $opt);
+    }
     
 }

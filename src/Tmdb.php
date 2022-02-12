@@ -29,16 +29,15 @@ class Tmdb
             'timeout'  => 2,
         ]);
 
-        $request = $client->request($method, self::VERSION.$type, [
-            "query" => [
-                "api_key" => config('tmdb.api_key'),
-                'language' => config('tmdb.language'),
-                'append_to_response' => config('tmdb.append_to_response')
-            ],
-            $opt
-        ]);
-
         try {
+            $request = $client->request($method, self::VERSION.$type, [
+                "query" => [
+                    "api_key" => config('tmdb.api_key'),
+                    'language' => config('tmdb.language'),
+                    'append_to_response' => config('tmdb.append_to_response')
+                ],
+                $opt
+            ]);
             return json_decode($request->getBody(), true);
         } catch (ClientException $e) {
             return $e->getMessage();

@@ -1,6 +1,7 @@
 <?php
 
 return [
-    "api_key" => "",
-    "language" => "en-US"
+    "api_key" => null,
+    "language" => "en-US",
+    "append_to_response" => null
 ];

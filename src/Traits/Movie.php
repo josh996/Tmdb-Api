@@ -11,6 +11,6 @@ trait Movie
 
     public function getAccountStates($id, $opt =[])
     {
-        return $this->getData("GET", self::MOVIE."/account_states".$id, $opt);
+        return $this->getData("GET", self::MOVIE."/".$id."/account_states", $opt);
     }
 }

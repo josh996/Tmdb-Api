@@ -4,6 +4,7 @@ namespace Josh996\TmdbApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Message;
 
 class Tmdb
 {
@@ -12,14 +13,16 @@ class Tmdb
     const MOVIE = '/movie';
     const TV = '/tv';
 
+    public $isArray = true;
+
     public function __construct()
     {
-        # code...
+
     }
 
     public function getMovie($id, $opt = [])
     {
-        
+        return $this->getData("GET", self::MOVIE."/".$id, $opt);
     }
 
     public function getData($method = "GET", $type, $opt = []) 
@@ -38,9 +41,16 @@ class Tmdb
                 ],
                 $opt
             ]);
-            return json_decode($request->getBody(), true);
+            $data = json_decode($request->getBody(), $this->isArray);
         } catch (ClientException $e) {
-            return $e->getMessage();
+            $data = json_decode(Message::bodySummary($e->getResponse()), $this->isArray);
         }
+
+        return $data;
+    }
+
+    public function toObject () {
+        $this->isArray = false;
+        return $this;
     }
 }

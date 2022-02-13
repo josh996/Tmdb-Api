@@ -4,7 +4,7 @@ namespace Josh996\TmdbApi;
 
 class Movie extends GetData
 {
-    public $id, $data;
+    public $id;
 
     public function __construct($id)
     {

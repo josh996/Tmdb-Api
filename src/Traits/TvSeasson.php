@@ -4,7 +4,7 @@ namespace Josh996\TmdbApi\Traits;
 
 trait TvSeasson
 {
-    public function getTv($id, $seasson, $opt = [])
+    public function getTvSeasson($id, $seasson, $opt = [])
     {
         $append = [
             "query" => [

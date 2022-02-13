@@ -28,4 +28,9 @@ class Season extends GetData
 
         return json_decode($data, $this->isArray);
     }
+
+    public function episode($episode)
+    {
+        return new Episode($this->id, $this->season, $episode);
+    }
 }

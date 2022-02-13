@@ -19,52 +19,72 @@ class Movie extends GetData
             ]
         ];
 
-        $data = $this->request('GET', '/3/movie/'.$this->id, array_merge_recursive($append, $options));
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id, 
+            array_merge_recursive($append, $options)
+        );
 
-        $this->data = $data;
-
-        return json_decode($this->data, true);
-    }
-    
-
-    // public function getMovie($id, $opt = [])
-    // {
-    //     $append = [
-    //         "query" => [
-    //             'append_to_response' => config('tmdb.append_to_response')
-    //         ]
-    //     ];
-
-    //     return $this->getData("GET", self::MOVIE."/".$id, array_merge_recursive($append, $opt));
-    // }
-
-    public function getAlternativeTitles($id, $opt =[])
-    {
-        //return $this->getData("GET", self::MOVIE."/".$id."/alternative_titles", $opt);
+        return json_decode($data, $this->isArray);
     }
 
-    public function getCredits($id, $opt =[])
+    public function getAlternativeTitles($options = [])
     {
-        //return $this->getData("GET", self::MOVIE."/".$id."/credits", $opt);
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/alternative_titles', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
     }
 
-    public function getExternalID($id, $opt =[])
+    public function getCredits($options =[])
     {
-        //return $this->getData("GET", self::MOVIE."/".$id."/external_ids", $opt);
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/credits', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
     }
 
-    public function getImages($id, $opt =[])
+    public function getExternalID($options =[])
     {
-        //return $this->getData("GET", self::MOVIE."/".$id."/images", $opt);
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/external_ids', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
     }
 
-    public function getKeywords($id, $opt =[])
+    public function getImages($options =[])
     {
-        //return $this->getData("GET", self::MOVIE."/".$id."/keywords", $opt);
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/images', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
     }
 
-    public function getList($id, $opt =[])
+    public function getKeywords($options =[])
     {
-        //return $this->getData("GET", self::MOVIE."/".$id."/lists", $opt);
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/keywords', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getList($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/lists', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
     }
 }

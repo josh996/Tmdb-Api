@@ -87,4 +87,64 @@ class Movie extends GetData
         );
         return json_decode($data, $this->isArray);
     }
+
+    public function getRecommendations($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/recommendations', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getReleaseDates($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/release_dates', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getReviews($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/reviews', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getSimilar($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/similar', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getTranslations($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/translations', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
+
+    public function getVideos($options =[])
+    {
+        $data = $this->request(
+            'GET', 
+            '/3/movie/'.$this->id.'/videos', 
+            array_merge_recursive($options)
+        );
+        return json_decode($data, $this->isArray);
+    }
 }

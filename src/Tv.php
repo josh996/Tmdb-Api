@@ -26,4 +26,9 @@ class Tv extends GetData
 
         return json_decode($data, $this->isArray);
     }
+
+    public function season($season)
+    {
+        return new Season($this->id, $season);
+    }
 }

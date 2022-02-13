@@ -8,6 +8,7 @@ class Tv extends GetData
 
     public function __construct($id)
     {
+        parent::__construct();
         $this->id = $id;
     }
 

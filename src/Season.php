@@ -8,6 +8,7 @@ class Season extends GetData
 
     public function __construct($id, $season = 0)
     {
+        parent::__construct();
         $this->id = $id;
         $this->season = $season;
     }

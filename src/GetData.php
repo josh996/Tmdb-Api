@@ -8,12 +8,8 @@ use GuzzleHttp\Psr7\Message;
 
 class GetData
 {
-    // const MOVIE = '/movie';
-    // const VERSION = "/3";
-    // const TV = '/tv';
-
     protected $client, $endpoint;
-    public $data;
+    public $data, $isArray = true;
 
     public function __construct($verify = true)
     {
@@ -35,47 +31,17 @@ class GetData
 
         try {
             $request = $this->client->request($method, $uri, array_merge_recursive($query, $options));
-            $data = $request;
+            $data = $request->getBody();
         } catch (ClientException $e) {
             $data = Message::bodySummary($e->getResponse());
         }
 
-        $this->data = $data;
-        return $this;
+        return $data;
     }
 
-    // public function getData($method = "GET", $url, $opt = []) 
-    // {
-    //     $query = [
-    //         "query" => [
-    //             "api_key" => config('tmdb.api_key'),
-    //             'language' => config('tmdb.language')
-    //         ]
-    //     ];
-
-    //     $url = $url;
-    //     if (is_array($url)) {
-    //         $convertUrl = '';
-    //         for ($i=0; $i < count($url); $i++) {
-    //             $convertUrl .= $url.'/';
-    //         }
-    //         $url = $convertUrl;
-    //     }
-
-    //     dd($url);
-        
-    //     $client = new Client([
-    //         'base_uri' => self::ENDPOINT,
-    //         'timeout'  => 2,
-    //     ]);
-
-    //     try {
-    //         $request = $client->request($method, self::VERSION.$url, array_merge_recursive($query, $opt));
-    //         $data = json_decode($request->getBody(), $this->isArray);
-    //     } catch (ClientException $e) {
-    //         $data = json_decode(), $this->isArray);
-    //     }
-
-    //     return $data;
-    // }
+    public function toObject()
+    {
+        $this->isArray = false;
+        return $this;
+    }
 }

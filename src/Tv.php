@@ -21,7 +21,7 @@ class Tv extends GetData
 
         $data = $this->request(
             'GET', 
-            '/3/tv/'.$this->id, 
+            '/3/tv/' . $this->id, 
             array_merge_recursive($append, $options)
         );
 

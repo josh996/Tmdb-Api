@@ -11,9 +11,7 @@ composer require "josh996/tmdb-api"
 php artisan vendor:publish --provider="Josh996\TmdbApi\TmdbApiProvider"
 ```
 
-# How To Use
-
-Search movie details:
+# Usage for movie
 ```php
 use Josh996\TmdbApi\Facades\Tmdb;
 
@@ -25,4 +23,13 @@ or
 use Josh996\TmdbApi\Facades\Tmdb;
 
 return Tmdb::movie(557)->get();
+```
+
+# Usage for TV, Season & Episode
+```php
+use Josh996\TmdbApi\Facades\Tmdb;
+
+$tv = Tmdb::tv($id)->get();
+$season = Tmdb::tv($id)->season($season)->get();
+$episode = Tmdb::tv($id)->season($season)->episode($episode)->get();
 ```

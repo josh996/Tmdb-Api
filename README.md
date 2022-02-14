@@ -10,6 +10,12 @@ composer require "josh996/tmdb-api"
 ```bash
 php artisan vendor:publish --provider="Josh996\TmdbApi\TmdbApiProvider"
 ```
+# Edit config file at directory (config/tmdb.php)
+```php
+return [
+    'api_key' => 'You\'re Api key here' 
+];
+```
 
 # Usage for movie
 ```php

@@ -11,10 +11,14 @@
 
 ## Search movie details:
 ```
-$movie = Tmdb::movie(557);
-return $movie->get();
+    use Josh996\TmdbApi\Facades\Tmdb;
+
+    $movie = Tmdb::movie(557);
+    return $movie->get();
 ```
 or
 ```
-return Tmdb::movie(557)->get();
+    use Josh996\TmdbApi\Facades\Tmdb;
+
+    return Tmdb::movie(557)->get();
 ```

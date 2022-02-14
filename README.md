@@ -9,7 +9,7 @@
 
 # How To Use
 
-Search movie details:
+## Search movie details:
 ```
 $movie = Tmdb::movie(557);
 return $movie->get();
